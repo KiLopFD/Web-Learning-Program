@@ -12,7 +12,8 @@ export const SUP_DOMAIN_API = 'api'
 export const domain = axios.create({
     baseURL: `${API_DOMAIN}`,
     headers:{
-        "Content-Type":"application/json"
+        "Content-Type":"application/json",
+        "Access-Control-Allow-Origin" : "*",
     }
 })
 // export const domain_post_code = axios.create({
