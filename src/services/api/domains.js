@@ -13,8 +13,6 @@ export const domain = axios.create({
     baseURL: `${API_DOMAIN}`,
     headers:{
         "Content-Type":"application/json",
-        "Access-Control-Allow-Origin" : "https://alex-dev-tech.onrender.com",
-        'Access-Control-Allow-Methods':'GET,PUT,POST,DELETE,PATCH,OPTIONS',
     }
 })
 // export const domain_post_code = axios.create({
