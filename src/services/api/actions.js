@@ -9,6 +9,7 @@ export const get = async (urlRoute, setData) => {
     domain.get(`${api_url}${urlRoute}`)
         .then(async (res) => {
             const data = await res.data
+            console.log(data)
             setData(data);
         })
         .catch((err) => {
