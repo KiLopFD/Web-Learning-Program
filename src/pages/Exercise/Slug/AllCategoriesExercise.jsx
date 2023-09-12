@@ -14,14 +14,16 @@ const AllCategoriesExercise = () => {
     let [searchParams, setSearchParams] = useSearchParams();
     useEffect(() => {
         if (typeof searchParams.get("category") === 'string') {
+            console.log(data);
+
             get(`/exercise${urlAPI.exercise(searchParams.get("category"), searchParams.get("search"), searchParams.get("param"))}`, setData)
         }
 
-    }, [searchParams])
-
+    }, [searchParams.get("search")])
+    console.log(searchParams.get("search"));
     return (
         <>
-            {searchParams.size === 0 &&
+            {searchParams.get("search") === null&&
                 <>
                     {ExerciseConst.map((val, index) => {
                         return <CardFB key={index} nameCard={val.name} categoryAPI={val.name} paramAPI='all' />

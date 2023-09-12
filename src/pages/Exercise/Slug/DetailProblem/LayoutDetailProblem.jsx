@@ -21,7 +21,7 @@ const LayoutDetailProblem = () => {
     const [data, setData] = useState(null)
 
     useEffect(() => {
-        if (typeof searchParams.get("category") === 'string'){
+        if (typeof searchParams.get("category") === 'string' && data === null){
             get(`/exercise${urlAPI.exercise(searchParams.get("category"), searchParams.get("search"), searchParams.get("param")).replace('detail','')}`, setData)
         }
 
