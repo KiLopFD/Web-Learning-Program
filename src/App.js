@@ -36,7 +36,7 @@ function App() {
       <ErrorBoundary
         FallbackComponent={ErrorFallBack}
       >
-        <Suspense>
+        <Suspense fallback={<>Loading...</>}>
           <AllRoutesPages />
         </Suspense>
       </ErrorBoundary>

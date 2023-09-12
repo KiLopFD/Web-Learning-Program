@@ -1,11 +1,13 @@
-import React, { memo } from 'react'
+import React, { Suspense, memo } from 'react'
 import { Outlet } from 'react-router-dom'
 
 const LayoutExercise = () => {
     return (
         <>
             <div className="wrap-LayoutExercise">
-                <Outlet context={{urlRoot:'exercise/'}} />
+                <Suspense fallback={<>Loading...</>}>
+                    <Outlet context={{ urlRoot: 'exercise/' }} />
+                </Suspense>
             </div>
         </>
     )

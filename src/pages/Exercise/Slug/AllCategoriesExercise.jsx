@@ -14,13 +14,10 @@ const AllCategoriesExercise = () => {
     let [searchParams, setSearchParams] = useSearchParams();
     useEffect(() => {
         if (typeof searchParams.get("category") === 'string') {
-            console.log(data);
-
             get(`/exercise${urlAPI.exercise(searchParams.get("category"), searchParams.get("search"), searchParams.get("param"))}`, setData)
         }
 
     }, [searchParams.get("search")])
-    console.log(searchParams.get("search"));
     return (
         <>
             {searchParams.get("search") === null&&
