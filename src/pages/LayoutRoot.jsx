@@ -1,5 +1,5 @@
 import React, { Suspense, memo } from 'react'
-import { FooterFB, Header, Loading, NavADS, SideBarFB } from '../components'
+import { FooterFB, Header, Loading, LoadingComponents, NavADS, SideBarFB } from '../components'
 import { Outlet } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 
@@ -8,11 +8,11 @@ const LayoutRoot = () => {
   return (
     <div className='main-web-wrap bg-slate-200 dark:bg-[#111827] relative'>
       {/* Loading  */}
-      {/* <Loading /> */}
-      {/* { isLoading && <Loading /> } */}
+      {/* <LoadingComponents /> */}
+      {/* { isLoading && <LoadingComponents /> } */}
       {/* End Loading  */}
       {/* Header */}
-      <Suspense fallback={<Loading />}>
+      <Suspense fallback={<LoadingComponents />}>
         <Header />
       </Suspense>
       {/* End Header */}
@@ -20,16 +20,16 @@ const LayoutRoot = () => {
       <main className='pt-10'>
         <div className="wrap-comp flex  items-start">
           <div className="wrap-sidebar">
-            <Suspense fallback={<Loading />}>
+            <Suspense fallback={<LoadingComponents />}>
               <SideBarFB />
             </Suspense>
           </div>
           <div className="wrap-content px-3 relative w-full min-h-[30rem] h-auto">
-            <Suspense fallback={<Loading />}>
+            <Suspense fallback={<LoadingComponents />}>
               <NavADS />
             </Suspense>
 
-            <Suspense fallback={<Loading />}>
+            <Suspense fallback={<LoadingComponents />}>
               <Outlet />
             </Suspense>
           </div>
@@ -37,7 +37,7 @@ const LayoutRoot = () => {
       </main>
       {/* End Main Section  */}
       {/* Footer Section  */}
-      <Suspense fallback={<Loading />}>
+      <Suspense fallback={<LoadingComponents />}>
         <FooterFB />
       </Suspense>
       {/* End Footer  */}

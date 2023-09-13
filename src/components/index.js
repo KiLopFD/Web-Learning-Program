@@ -1,5 +1,6 @@
 import { lazy } from "react";
 import Loading from "./Loading/Loading";
+import LoadingComponents from "./Loading/LoadingComponents";
 
 const Header = lazy(() => import('./Header/Header'))
 const SideBarFB = lazy(() => import('./SiderBar/SideBarFB'))
@@ -18,7 +19,7 @@ const Copy = lazy(() => import('./Copy/Copy'))
 const NavADS = lazy(() => import('./NavADS/NavADS'))
 // const Loading = lazy(() => import('./Loading/Loading'))
 
-
+// UI Components:
 export {
     Header,
     SideBarFB,
@@ -35,5 +36,10 @@ export {
     MarkDown,
     Copy,
     NavADS,
-    Loading
+}
+
+// UI Loadings:
+export {
+    Loading,
+    LoadingComponents
 }

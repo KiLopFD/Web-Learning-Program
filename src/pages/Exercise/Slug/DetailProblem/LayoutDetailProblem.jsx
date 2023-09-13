@@ -1,7 +1,7 @@
-import React, { memo, useEffect, useRef, useState } from 'react'
+import React, { Suspense, memo, useEffect, useRef, useState } from 'react'
 import { Outlet, useLocation, useSearchParams } from 'react-router-dom'
 import Split from '@uiw/react-split'
-import { CustomVsCode, EditorVsCode, SubmitCode } from '../../../../components'
+import { CustomVsCode, EditorVsCode, LoadingComponents, SubmitCode } from '../../../../components'
 import { ThemeCode, urlAPI } from '../../../../constants/constVar'
 import { useDispatch, useSelector } from 'react-redux'
 import { get } from '../../../../services/api/actions'
@@ -58,7 +58,9 @@ const LayoutDetailProblem = () => {
                         }}
                     >
                         <div className="wrap-info-problem h-[35rem] md:w-[49%] w-full pl-3 overflow-y-hidden">
-                            <Outlet context={{ code: data?.code }} />
+                            <Suspense fallback={<LoadingComponents />}>
+                                <Outlet context={{ code: data?.code }} />
+                            </Suspense>
                         </div>
                         <div className="wrap-section-code md:w-[50%] w-full h-full">
                             <CustomVsCode listItems={ThemeCode} />
