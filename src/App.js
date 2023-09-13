@@ -2,7 +2,8 @@ import { ErrorBoundary } from 'react-error-boundary';
 import './App.css';
 import { AllRoutesPages } from './services/routes';
 import { Suspense } from 'react';
-import { ErrorFallBack } from './components';
+import { ErrorFallBack, Loading } from './components';
+import { useSelector } from 'react-redux';
 
 
 
@@ -31,12 +32,19 @@ function App() {
   //         return false;
   //     }
   // }
+
+
+  const isLoading = useSelector((state) => state.loadingState.isLoading)
+
   return (
     <>
       <ErrorBoundary
         FallbackComponent={ErrorFallBack}
       >
-        <Suspense fallback={<>Loading...</>}>
+        {isLoading && <Loading />}
+
+
+        <Suspense fallback={<Loading />}>
           <AllRoutesPages />
         </Suspense>
       </ErrorBoundary>

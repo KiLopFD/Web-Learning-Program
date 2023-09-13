@@ -1,4 +1,5 @@
 import { lazy } from "react";
+import Loading from "./Loading/Loading";
 
 const Header = lazy(() => import('./Header/Header'))
 const SideBarFB = lazy(() => import('./SiderBar/SideBarFB'))
@@ -15,6 +16,7 @@ const ErrorFallBack = lazy(() => import('./ErrorFallBack/ErrorFallBack'))
 const MarkDown = lazy(() => import('./MarkDown/MarkDown'))
 const Copy = lazy(() => import('./Copy/Copy'))
 const NavADS = lazy(() => import('./NavADS/NavADS'))
+// const Loading = lazy(() => import('./Loading/Loading'))
 
 
 export {
@@ -32,5 +34,6 @@ export {
     ErrorFallBack,
     MarkDown,
     Copy,
-    NavADS
+    NavADS,
+    Loading
 }

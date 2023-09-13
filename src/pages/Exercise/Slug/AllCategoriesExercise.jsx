@@ -3,6 +3,8 @@ import { ExerciseConst, urlAPI } from '../../../constants/constVar';
 import { CardFB } from '../../../components';
 import { useLocation, useSearchParams } from 'react-router-dom';
 import { get } from '../../../services/api/actions';
+import { useDispatch } from 'react-redux';
+import { checkLoading } from '../../../services/redux/slices/loadingState';
 
 
 // index Route
@@ -17,10 +19,20 @@ const AllCategoriesExercise = () => {
             get(`/exercise${urlAPI.exercise(searchParams.get("category"), searchParams.get("search"), searchParams.get("param"))}`, setData)
         }
 
-    }, [searchParams.get("search")])
+        if (searchParams.get("search") !== null && data === null)
+        {
+            dispatch(checkLoading(true))
+        }
+        else{
+            dispatch(checkLoading(false))
+        }
+
+    }, [searchParams.get("search"), data])
+    const dispatch = useDispatch()
+
     return (
         <>
-            {searchParams.get("search") === null&&
+            {searchParams.get("search") === null &&
                 <>
                     {ExerciseConst.map((val, index) => {
                         return <CardFB key={index} nameCard={val.name} categoryAPI={val.name} paramAPI='all' />
@@ -47,6 +59,7 @@ const AllCategoriesExercise = () => {
                     </div>
                 </>
             }
+            
         </>
     )
 }
