@@ -1,14 +1,14 @@
 import { Navigate } from "react-router-dom";
 import { About, AllCategoriesExercise, AllProblem, DetailProblem, Home, LayoutDetailProblem, LayoutExercise, LayoutRoot } from "../../pages";
 import { Suspense } from "react";
-import { Loading } from "../../components";
+import { LoadingComponents } from "../../components";
 
 
 const Routes = [
   {
     path: "/",
     element:
-      <Suspense fallback={<Loading />}>
+      <Suspense fallback={<LoadingComponents />}>
         <LayoutRoot />
       </Suspense>,
     children: [
@@ -17,7 +17,7 @@ const Routes = [
         index: true,
         path: "",
         element:
-          <Suspense fallback={<Loading />}>
+          <Suspense fallback={<LoadingComponents />}>
             <Home />
           </Suspense>
       },
@@ -25,7 +25,7 @@ const Routes = [
         // : /exercise
         path: "/exercise",
         element:
-          <Suspense fallback={<Loading />}>
+          <Suspense fallback={<LoadingComponents />}>
             <LayoutExercise />
           </Suspense>
         ,
@@ -34,14 +34,14 @@ const Routes = [
             // : /exercise
             index: true,
             element:
-              <Suspense fallback={<Loading />}>
+              <Suspense fallback={<LoadingComponents />}>
                 <AllCategoriesExercise />
               </Suspense>
           },
           {
             path: '/exercise/detail',
             element:
-              <Suspense fallback={<Loading />}>
+              <Suspense fallback={<LoadingComponents />}>
                 <LayoutDetailProblem />
               </Suspense>
             ,
@@ -49,7 +49,7 @@ const Routes = [
               {
                 path: '',
                 element:
-                  <Suspense fallback={<Loading />}>
+                  <Suspense fallback={<LoadingComponents />}>
                     <DetailProblem />
                   </Suspense>
               }
