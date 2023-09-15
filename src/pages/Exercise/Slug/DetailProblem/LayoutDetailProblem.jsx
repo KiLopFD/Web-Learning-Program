@@ -29,7 +29,7 @@ const LayoutDetailProblem = () => {
 
 
         
-    }, [data, searchParams.get("search")])
+    }, [searchParams.get("search")])
 
     useEffect(()=>{
         if (searchParams.get("search") !== null && data === null) {
