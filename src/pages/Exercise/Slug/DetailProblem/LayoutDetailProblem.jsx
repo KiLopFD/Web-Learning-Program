@@ -28,13 +28,19 @@ const LayoutDetailProblem = () => {
         }
 
 
+        
+    }, [data, searchParams.get("search")])
+
+    useEffect(()=>{
         if (searchParams.get("search") !== null && data === null) {
             dispatch(checkLoading(true))
         }
         else {
             dispatch(checkLoading(false))
         }
-    }, [data, searchParams.get("search")])
+    }, [data])
+
+
     // Store Code OnChange:
     const storeCodeCurrent = useSelector((state) => state.vsCodeReducer.storeCodeCurrent)
     // useEffect(()=> {

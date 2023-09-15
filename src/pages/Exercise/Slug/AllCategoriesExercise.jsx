@@ -27,7 +27,20 @@ const AllCategoriesExercise = () => {
             dispatch(checkLoading(false))
         }
 
-    }, [searchParams.get("search"), data])
+    }, [searchParams.get("search")])
+
+    useEffect(()=>{
+        if (searchParams.get("search") !== null && data === null)
+        {
+            dispatch(checkLoading(true))
+        }
+        else{
+            dispatch(checkLoading(false))
+        }
+    }, [data])
+
+
+
     const dispatch = useDispatch()
 
     return (
